@@ -1,4 +1,4 @@
-# NdrLookup
+# NdrLookup [![Build Status](https://travis-ci.org/PublicHealthEngland/ndr_lookup.svg?branch=master)](https://travis-ci.org/PublicHealthEngland/ndr_lookup)
 
 This is the Public Health England (PHE) National Disease Registers (NDR) Lookup ruby gem,
 providing:
