@@ -1,0 +1,12 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+*.lock
+
+# Ignore RuboCop's cache.
+.rubocop-https---raw-githubusercontent-com-PublicHealthEngland-ndr-dev-support-master--rubocop-yml
