@@ -52,6 +52,32 @@ Rails.application.config.to_prepare do
 end
 ```
 
+### NHS Digital Organisation Data Service API Client
+
+Access to the NHS Digital lookup, sync and search endpoints.
+
+NdrLookup::NhsdOds::Client is a client to access the search and sync endpoints and NdrLookup::NhsdOds::Organisation will allow you to find an organisation.
+
+Lookup will return an Organisation object with model like behaviours.
+e.g. NdrLookup::NhsdOds::Organisation.find('X26')
+
+Sync will return a JSON format payload for all organisations that have been updated since the specified date.
+e.g. NdrLookup::NhsdOds::Client.sync(2019-06-14)
+
+Search will allow you to search based on parameters specified by ODS
+https://digital.nhs.uk/services/organisation-data-service/guidance-for-developers/search-endpoint#parameters
+e.g. NdrLookup::NhsdOds::Client.search(Name: 'NHS Digital')
+
+The client isn't included by default, so add the following to your code:
+
+```ruby
+require 'ndr_lookup/nhsd_ods/client'
+```
+
+```ruby
+require 'ndr_lookup/nhsd_ods/organisation'
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

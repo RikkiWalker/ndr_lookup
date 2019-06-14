@@ -1,0 +1,11 @@
+HTTP/2.0 406 
+date: Tue, 11 Jun 2019 12:45:16 GMT
+content-type: application/json
+content-length: 66
+access-control-allow-origin: *
+server: Werkzeug/0.12.2 Python/3.6.8
+
+{
+  "errorCode": 406,
+  "errorText": "Unknown argument found."
+}
