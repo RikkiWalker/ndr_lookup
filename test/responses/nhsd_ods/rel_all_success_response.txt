@@ -1,0 +1,8 @@
+HTTP/2.0 200
+date: Mon, 01 Jul 2019 15:17:53 GMT
+content-type: application/json
+content-length: 350
+access-control-allow-origin: *
+server: Werkzeug/0.12.2 Python/3.6.8
+
+{"Relationships": [{"id": "RE3", "code": "3", "displayName": "IS DIRECTED BY"}, {"id": "RE6", "code": "6", "displayName": "IS OPERATED BY"}, {"id": "RE4", "code": "4", "displayName": "IS COMMISSIONED BY"}, {"id": "RE5", "code": "5", "displayName": "IS LOCATED IN THE GEOGRAPHY OF"}, {"id": "RE2", "code": "2", "displayName": "IS A SUB-DIVISION OF"}]}

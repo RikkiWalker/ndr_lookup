@@ -1,0 +1,8 @@
+HTTP/2.0 200 
+date: Mon, 01 Jul 2019 15:20:31 GMT
+content-type: application/json
+content-length: 80
+access-control-allow-origin: *
+server: Werkzeug/0.12.2 Python/3.6.8
+
+{"Relationships": [{"id": "RE6", "code": "6", "displayName": "IS OPERATED BY"}]}

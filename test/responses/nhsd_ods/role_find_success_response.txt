@@ -1,0 +1,8 @@
+HTTP/2.0 200
+date: Mon, 01 Jul 2019 15:31:31 GMT
+content-type: application/json
+content-length: 111
+access-control-allow-origin: *
+server: Werkzeug/0.12.2 Python/3.6.8
+
+{"Roles": [{"id": "RO98", "code": "98", "displayName": "CLINICAL COMMISSIONING GROUP", "primaryRole": "true"}]}
