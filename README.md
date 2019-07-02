@@ -57,9 +57,7 @@ end
 
 NdrLookup::NhsdOds::Client is a client to access the NHS Digital ODS API search and sync endpoints.
 
-Sync will return a JSON format payload for all organisations that have been updated since the specified date.
-
-For example:
+Sync will return a JSON format payload for all organisations that have been updated since the specified date:
 
 ```ruby
 require 'ndr_lookup/nhsd_ods/client'
@@ -67,7 +65,7 @@ require 'ndr_lookup/nhsd_ods/client'
 organisation_ids = NdrLookup::NhsdOds::Client.sync(Date.new(2019, 6, 14))
 ```
 
-NOTE that the client isn't included by default, so you have to require it specifically.
+*NOTE* that the client isn't included by default, so you have to require it specifically.
 
 Search will allow you to search based on parameters specified by ODS
 https://digital.nhs.uk/services/organisation-data-service/guidance-for-developers/search-endpoint#parameters
@@ -82,9 +80,7 @@ results = NdrLookup::NhsdOds::Client.search(Name: 'NHS Digital')
 
 NdrLookup::NhsdOds::Organisation will enable you to access the NHS Digital ODS API to find a specific organisation.
 
-Lookup will return an Organisation object with model like behaviours.
-
-For example:
+Lookup will return an Organisation object with model like behaviours:
 
 ```ruby
 require 'ndr_lookup/nhsd_ods/organisation'
