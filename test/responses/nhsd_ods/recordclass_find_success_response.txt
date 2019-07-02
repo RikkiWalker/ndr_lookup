@@ -1,0 +1,8 @@
+HTTP/2.0 200
+date: Mon, 01 Jul 2019 15:00:53 GMT
+content-type: application/json
+content-length: 73
+access-control-allow-origin: *
+server: Werkzeug/0.12.2 Python/3.6.8
+
+{"RecordClasses": [{"id": "RC2", "code": "2", "displayName": "HSCSite"}]}

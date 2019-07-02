@@ -88,6 +88,16 @@ require 'ndr_lookup/nhsd_ods/organisation'
 organisation = NdrLookup::NhsdOds::Organisation.find('X26')
 ```
 
+NdrLookup::NhsdOds::CodeSystems will enable you to access the NHS Digital ODS API to find the meta data information included in the payload records returned via the endpoints. CodeSystems currently includes roles, relationships and record classes.
+
+```ruby
+require 'ndr_lookup/nhsd_ods/code_systems'
+
+role = NdrLookup::NhsdOds::Role.find('RO197')
+first_relationship = NdrLookup::NhsdOds::Rel.first
+all_record_classes = NdrLookup::NhsdOds::Recordclass.all
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
