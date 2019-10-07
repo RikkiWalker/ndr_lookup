@@ -32,7 +32,7 @@ module NdrLookup
       # Pretty form of address field.
       def print_full_address(object)
         "#{object.address&.gsub(/,/, ', ')&.titleize}, " \
-        "#{object.postcode&.postcodeize}"
+        "#{object.postcode}"
       end
 
       def input_queue

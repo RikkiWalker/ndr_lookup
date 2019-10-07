@@ -38,7 +38,7 @@ module NdrLookup
       end
 
       def postcode
-        @postcode ||= columns[POSTCODE].clean(:postcode)
+        @postcode ||= columns[POSTCODE]
       end
 
       def udprn
