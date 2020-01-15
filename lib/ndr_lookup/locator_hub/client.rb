@@ -33,14 +33,13 @@ module NdrLookup
       end
 
       def rectify_address(address)
-        query = URI.encode_www_form(
-          Query: address,
-          Fuzzy: 'false',
-          ReturnCoordinateSystem: '-1',
-          format: 'json'
-        )
+        query    = build_query(address)
         response = call_postcode_service("Rectify/#{locator_id}/ADDRESS?#{query}")
         MatchedRecord.new(response)
+      end
+
+      def match_address(query)
+        get_matches(query: query, target: 'ADDRESS')
       end
 
       # def capabilities
@@ -59,6 +58,7 @@ module NdrLookup
 
       def request
         @request ||= begin
+          HTTPI.adapter = :net_http
           request = HTTPI::Request.new
           request.auth.ntlm(username, password, domain)
           request
@@ -67,7 +67,7 @@ module NdrLookup
 
       def call_postcode_service(path)
         request.url = [@api_path, path].join('/')
-        response = HTTPI.get(request)
+        response = HTTPI.get(request, :net_http)
         JSON.parse(response.body)
       end
 
@@ -77,6 +77,38 @@ module NdrLookup
 
         raise "NdrLookup::LocatorHub::Client attributes #{unset_attributes.join(', ')} " \
               'have not been configured'
+      end
+
+      def get_matches(query:, target:, fuzzy: false, cacheid: '', pickeditem: '')
+        query    = build_query(query, fuzzy, cacheid, pickeditem)
+        response = call_postcode_service("Match/#{locator_id}/#{target}?#{query}")
+
+        if response['PickListItems']
+          cache_id = response['CacheIdentifier']
+
+          response['PickListItems'].flat_map do |record|
+            get_matches(query: record['Description'],
+                        target: target,
+                        cacheid: cache_id,
+                        pickeditem: record['RecordId'])
+          end
+        else
+          [MatchedRecord.new(response)]
+        end
+      end
+
+      def build_query(query, fuzzy = false, cacheid = nil, pickeditem = nil)
+        # This is just building a string query for the params on a request
+        # format is not caps so its on the end of the query
+        # query is sorted alphabetically with caps all before lower case
+        URI.encode_www_form(
+          Query: query,
+          Fuzzy: fuzzy,
+          ReturnCoordinateSystem: '-1',
+          Pickeditem: pickeditem,
+          Cacheid: cacheid,
+          format: 'json'
+        )
       end
     end
   end
